@@ -10,19 +10,19 @@
     <meta name="robots" content="noindex" /> <!-- Opcional: Generalmente no queremos que los términos compitan con el contenido principal -->
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/assets/img/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="../assets/img/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="FABLAB UFPS - Cápsulas Educativas" />
-    <link rel="manifest" href="/assets/img/site.webmanifest" />
+    <link rel="manifest" href="../assets/img/site.webmanifest" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="/assets/css/styles.css" />
-    <link rel="stylesheet" href="/assets/css/static.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/static.css" />
     </head>
     <body>
 
@@ -41,11 +41,11 @@
             </svg>
         </button>
         <div class="navbar__brand">
-        <img src="/assets/img/Laboratorio - Fabricación Digital - FABLAB.png" alt="FabLab UFPS" class="navbar__logo-img" />
+        <img src="../assets/img/Laboratorio - Fabricación Digital - FABLAB.png" alt="FabLab UFPS" class="navbar__logo-img" />
         </div>
         <nav class="navbar__nav" id="navbarNav">
-        <a href="/pages/index.html" class="nav-link">Inicio</a>
-        <a href="/pages/about.html" class="nav-link">Acerca de</a>
+        <a href="./index.html" class="nav-link">Inicio</a>
+        <a href="./about.html" class="nav-link">Acerca de</a>
         </nav>
         <div class="navbar__search">
         <div class="search-bar">
@@ -53,7 +53,7 @@
             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
             </svg>
             <input type="text" class="search-bar__input" placeholder="Buscar curso..." autocomplete="off" readonly
-            onclick="window.location.href='/pages/index.html'" style="cursor:pointer;" />
+            onclick="window.location.href='./index.html'" style="cursor:pointer;" />
         </div>
         </div>
     </header>
@@ -198,18 +198,18 @@
     <footer class="footer">
         <div class="footer__inner">
         <div class="footer__brand">
-            <img src="/assets/img/Laboratorio - Fabricación Digital - FABLAB.png" alt="FabLab UFPS" class="footer__logo-img" />
+            <img src="../assets/img/Laboratorio - Fabricación Digital - FABLAB.png" alt="FabLab UFPS" class="footer__logo-img" />
         </div>
         <p class="footer__copy">
             © <span id="footerYear"></span> Laboratorio de Fabricación Digital — Universidad Francisco de Paula Santander
         </p>
         <div class="footer__links">
-            <a href="/pages/terms.html" class="footer__link">Política de uso</a>
+            <a href="./terms.html" class="footer__link">Política de uso</a>
         </div>
         </div>
     </footer>
 
-    <script src="/assets/js/static.js"></script>
+    <script src="../assets/js/static.js"></script>
     <script>
         document.getElementById('navbarToggle').addEventListener('click', () => {
             document.getElementById('navbarNav').classList.toggle('navbar__nav--open');

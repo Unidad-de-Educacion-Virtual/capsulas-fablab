@@ -73,7 +73,7 @@
 
     // Actualizar link del navbar con el ID actual
     if (DOM.navCourseLink) {
-        DOM.navCourseLink.href = `/pages/course.html?id=${encodeURIComponent(courseId)}`;
+        DOM.navCourseLink.href = `./course.html?id=${encodeURIComponent(courseId)}`;
     }
 
     try {
@@ -101,7 +101,7 @@
         }
 
         // 2. Cargar metadatos locales (Banner, Autor, Área) desde courses.json para complementar
-        const localRes = await fetch('/data/courses.json');
+        const localRes = await fetch('../data/courses.json');
         const localData = await localRes.json();
         const localMeta = localData.courses.find(c => 
             c.id === courseId || 
@@ -454,7 +454,7 @@ async function initTicker() {
     if (!bar || !track) return;
 
     try {
-        const res      = await fetch(`${API_URL}?action=getTicker&t=${Date.now()}`).catch(() => fetch('/data/ticker.json'));
+        const res      = await fetch(`${API_URL}?action=getTicker&t=${Date.now()}`).catch(() => fetch('../data/ticker.json'));
         const data     = await res.json();
         const messages = data.messages ?? [];
 

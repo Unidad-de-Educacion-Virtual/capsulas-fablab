@@ -407,7 +407,7 @@ async function initTicker() {
     if (!bar || !track) return;
 
     try {
-        const res      = await fetch(`${API_URL}?action=getTicker&t=${Date.now()}`).catch(() => fetch('/data/ticker.json'));
+        const res      = await fetch(`${API_URL}?action=getTicker&t=${Date.now()}`).catch(() => fetch('../data/ticker.json'));
         const data     = await res.json();
         const messages = data.messages ?? [];
 
