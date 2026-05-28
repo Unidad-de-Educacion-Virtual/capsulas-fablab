@@ -303,7 +303,11 @@ function buildCard(course) {
     // Procesar múltiples áreas para mostrar etiquetas limpias
     const rawArea = course.area || 'FabLab';
     const areaList = typeof rawArea === 'string' ? rawArea.split(',').map(a => a.trim()) : (Array.isArray(rawArea) ? rawArea : [rawArea]);
-    const areaLabels = areaList.map(a => FILTER_LABELS.area[a.toLowerCase()] ?? a).join(', ');
+    const areaTagsHtml = areaList.map(areaKey => {
+        const label = FILTER_LABELS.area[areaKey.toLowerCase()] ?? areaKey;
+        // Cada área se convierte en su propia etiqueta <span>
+        return `<span class="course-card__tag">${escapeHTML(label)}</span>`;
+    }).join('');
 
     const thumbnail    = thumbUrl
     ? `<img src="${thumbUrl}" alt="${escapeHTML(course.title)}" loading="lazy" referrerpolicy="no-referrer" />`
@@ -320,8 +324,8 @@ function buildCard(course) {
         <span class="course-card__badge">${capsuleCount} cápsula${capsuleCount !== 1 ? 's' : ''}</span>
         </div>
         <div class="course-card__body">
-        <div class="course-card__meta">
-            <span class="course-card__tag">${escapeHTML(course.area ?? 'FabLab')}</span>
+        <div class="course-card__meta course-card__meta--tags">
+            ${areaTagsHtml}
             <span class="course-card__author">${escapeHTML(course.author ?? '')}</span>
         </div>
         <h2 class="course-card__title">${escapeHTML(course.title)}</h2>
