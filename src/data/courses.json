@@ -1,0 +1,67 @@
+{
+    "courses": [
+    {
+        "id": "001-blender",
+        "title": "Modelado y Texturizado para Recursos Digitales",
+        "description": "En este curso se enseña el uso del software Blender desde cero a un nivel básico en el Modelado 3D, creación de texturas con mapas UV, implementación de PBRs, renderizado y exporte para distintos formatos y plataformas.",
+        "thumbnail": "/assets/img/Modelado y Texturizado para Recursos Digitales.png",
+        "author": "Mauro Leandro Rios Churta",
+        "area": "modelado-3d",
+        "banner": "/assets/img/modelado-3d.jpg",
+        "nivel": "basico",
+        "software": "blender",
+        "capsules": [
+        {
+            "id": "capsula-01",
+            "order": 1,
+            "title": "Modelado 3D",
+            "description": "Esta cápsula contiene conceptos básicos de modelado 3D, las aplicaciones que tiene y una breve introducción de lo que es Blender.",
+            "video": {
+            "platform": "youtube",
+            "videoId": "XXXXXXXXXXX"
+            },
+            "files": [
+            {
+                "name": "Modelo base",
+                "type": "glb",
+                "url": "https://drive.google.com/..."
+            },
+            {
+                "name": "Archivo Blender",
+                "type": "blend",
+                "url": "https://drive.google.com/..."
+            },
+            {
+                "name": "Textura Albedo",
+                "type": "png",
+                "category": "pbr",
+                "url": "https://drive.google.com/..."
+            }
+            ]
+        },
+        {
+            "id": "capsula-02",
+            "order": 2,
+            "title": "Título de la Cápsula 2",
+            "description": "Descripción breve",
+            "video": {
+            "platform": "youtube",
+            "videoId": "XXXXXXXXXXX"
+            },
+            "files": []
+        },
+        {
+            "id": "capsula-03",
+            "order": 3,
+            "title": "Título de la Cápsula 3",
+            "description": "Descripción breve",
+            "video": {
+            "platform": "youtube",
+            "videoId": "XXXXXXXXXXX"
+            },
+            "files": []
+        }
+        ]
+    }
+    ]
+}

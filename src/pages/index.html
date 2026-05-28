@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FabLab UFPS — Cápsulas Educativas</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Plataforma de cápsulas educativas del Laboratorio de Fabricación Digital (FabLab) de la Universidad Francisco de Paula Santander. Aprende modelado 3D, impresión 3D y electrónica." />
+    <meta name="keywords" content="FabLab UFPS, Cápsulas Educativas, Fabricación Digital, UFPS Cúcuta, Modelado 3D, Impresión 3D, Electrónica, Diseño 3D, Blender, Fusion 360" />
+    <meta name="author" content="Mauro Leandro Rios Churta" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="FabLab UFPS — Cápsulas Educativas" />
+    <meta property="og:description" content="Explora nuestra oferta académica en fabricación digital. Cursos prácticos y recursos gratuitos para la comunidad UFPS." />
+    <meta property="og:image" content="/assets/img/Laboratorio - Fabricación Digital - FABLAB.png" />
+    <meta property="og:url" content="https://github.com/Unidad-de-Educacion-Virtual" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/img/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="FABLAB UFPS - Cápsulas Educativas" />
+    <link rel="manifest" href="../assets/img/site.webmanifest" />
+    
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+    <!-- ╔══════════════════════════════════════╗ -->
+    <!-- ║         ANNOUNCEMENT BAR            ║ -->
+    <!-- ╚══════════════════════════════════════╝ -->
+    <div class="announcement-bar">
+        <div class="ticker-track" id="tickerTrack"></div>
+    </div>
+
+    <!-- ╔══════════════════════════════════════╗ -->
+    <!-- ║              NAVBAR                 ║ -->
+    <!-- ╚══════════════════════════════════════╝ -->
+    <header class="navbar">
+    <button class="navbar__toggle" id="navbarToggle" aria-label="Abrir menú">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </button>
+    <div class="navbar__brand">
+        <img 
+            src="../assets/img/Laboratorio - Fabricación Digital - FABLAB.png" 
+            alt="FabLab UFPS" 
+            class="navbar__logo-img"
+        />
+    </div>
+
+    <nav class="navbar__nav" id="navbarNav">
+        <a href="./index.html" class="nav-link nav-link--active">Inicio</a>
+        <a href="./about.html" class="nav-link">Acerca de</a>
+    </nav>
+
+    <div class="navbar__search">
+        <div class="search-bar">
+        <svg class="search-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input
+            type="text"
+            id="searchInput"
+            class="search-bar__input"
+            placeholder="Buscar curso..."
+            autocomplete="off"
+        />
+        </div>
+    </div>
+    </header>
+
+    <!-- ╔══════════════════════════════════════╗ -->
+    <!-- ║              HERO TITLE             ║ -->
+    <!-- ╚══════════════════════════════════════╝ -->
+    <section class="hero">
+    <div class="hero__eyebrow">Laboratorio de Fabricación Digital</div>
+    <h1 class="hero__title">
+        OFERTA ACADÉMICA:<br />
+        <span class="hero__title--accent">SELECCIÓN DE CURSOS</span>
+    </h1>
+    <div class="hero__divider"></div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════╗ -->
+    <!-- ║           MAIN LAYOUT               ║ -->
+    <!-- ╚══════════════════════════════════════╝ -->
+    <main class="main-layout">
+
+    <!-- SIDEBAR FILTROS -->
+    <aside class="sidebar">
+        <div class="sidebar__section">
+        <button class="sidebar__heading" data-target="filter-area">
+            Área
+            <svg class="sidebar__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="m6 9 6 6 6-6"/>
+            </svg>
+        </button>
+        <div class="sidebar__options" id="filter-area">
+        </div>
+        </div>
+
+        <div class="sidebar__section">
+        <button class="sidebar__heading" data-target="filter-nivel">
+            Nivel
+            <svg class="sidebar__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="m6 9 6 6 6-6"/>
+            </svg>
+        </button>
+        <div class="sidebar__options" id="filter-nivel">
+        </div>
+        </div>
+
+        <div class="sidebar__section">
+        <button class="sidebar__heading" data-target="filter-software">
+            Software
+            <svg class="sidebar__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="m6 9 6 6 6-6"/>
+            </svg>
+        </button>
+        <div class="sidebar__options" id="filter-software">
+        </div>
+        </div>
+
+        <button class="sidebar__clear" id="clearFilters">
+        Limpiar filtros
+        </button>
+    </aside>
+
+    <!-- CONTENT: RESULTS + CARDS -->
+    <section class="content">
+        <div class="content__header">
+        <p class="content__count">
+            Mostrando <strong id="courseCount">0</strong> curso(s)
+        </p>
+        <div class="content__sort">
+            <label for="sortSelect" class="sort-label">Ordenar por:</label>
+            <select id="sortSelect" class="sort-select">
+            <option value="default">Predeterminado</option>
+            <option value="title-asc">Título A–Z</option>
+            <option value="title-desc">Título Z–A</option>
+            <option value="capsules">Más cápsulas</option>
+            </select>
+        </div>
+        </div>
+
+        <!-- GRID DE TARJETAS -->
+        <div class="courses-grid" id="coursesGrid">
+        <!-- Renderizado dinámicamente por main.js -->
+        </div>
+
+        <!-- ESTADO VACÍO -->
+        <div class="empty-state" id="emptyState" style="display:none;">
+        <div class="empty-state__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            <path d="M8 11h6M11 8v6" opacity="0.4"/>
+            </svg>
+        </div>
+        <p class="empty-state__text">No se encontraron cursos con los filtros aplicados.</p>
+        <button class="empty-state__btn" id="resetEmpty">Limpiar búsqueda</button>
+        </div>
+
+        <!-- SKELETON LOADER -->
+        <div class="skeleton-grid" id="skeletonGrid">
+        <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line"></div><div class="skeleton-line skeleton-line--short"></div></div>
+        <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line"></div><div class="skeleton-line skeleton-line--short"></div></div>
+        <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line"></div><div class="skeleton-line skeleton-line--short"></div></div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- ╔══════════════════════════════════════╗ -->
+    <!-- ║              FOOTER                 ║ -->
+    <!-- ╚══════════════════════════════════════╝ -->
+    <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__brand">
+            <img 
+                src="../assets/img/Laboratorio - Fabricación Digital - FABLAB.png" 
+                alt="FabLab UFPS" 
+                class="footer__logo-img"
+            />
+            </div>
+        <p class="footer__copy">
+        © <span id="footerYear"></span> Laboratorio de Fabricación Digital — Universidad Francisco de Paula Santander
+        </p>
+        <div class="footer__links">
+        <a href="./terms.html" class="footer__link">Política de uso</a>
+        </div>
+    </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

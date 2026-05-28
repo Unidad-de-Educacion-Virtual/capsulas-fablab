@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FabLab UFPS — Cápsulas</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Accede a las lecciones y recursos descargables de nuestros cursos de fabricación digital. Aprende a tu propio ritmo con el FabLab UFPS." />
+    <meta property="og:title" content="Cápsulas de Aprendizaje — FabLab UFPS" />
+    <meta property="og:type" content="article" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/img/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="FABLAB UFPS - Cápsulas Educativas" />
+    <link rel="manifest" href="/assets/img/site.webmanifest" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <link rel="stylesheet" href="/assets/css/course.css" />
+</head>
+<body>
+
+    <!-- ╔══════════════════════════════════════╗ -->
+    <!-- ║         ANNOUNCEMENT BAR            ║ -->
+    <!-- ╚══════════════════════════════════════╝ -->
+    <div class="announcement-bar">
+        <div class="ticker-track" id="tickerTrack"></div>
+    </div>
+
+    <!-- ╔══════════════════════════════════════╗ -->
+    <!-- ║              NAVBAR                 ║ -->
+    <!-- ╚══════════════════════════════════════╝ -->
+    <header class="navbar">
+        <button class="navbar__toggle" id="navbarToggle" aria-label="Abrir menú">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+        <div class="navbar__brand">
+        <img
+            src="/assets/img/Laboratorio - Fabricación Digital - FABLAB.png"
+            alt="FabLab UFPS"
+            class="navbar__logo-img"
+        />
+        </div>
+        <nav class="navbar__nav" id="navbarNav">
+        <a href="/pages/index.html" class="nav-link">Inicio</a>
+        <a href="/pages/about.html" class="nav-link">Acerca de</a>
+        </nav>
+        <div class="navbar__search">
+        <div class="search-bar">
+            <svg class="search-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input
+            type="text"
+            id="capsuleSearch"
+            class="search-bar__input"
+            placeholder="Buscar cápsula..."
+            autocomplete="off"
+            />
+        </div>
+        </div>
+    </header>
+
+    <!-- ╔══════════════════════════════════════╗ -->
+    <!-- ║         HERO — IMAGEN DEL CURSO     ║ -->
+    <!-- ╚══════════════════════════════════════╝ -->
+    <section class="course-hero" id="courseHero">
+        <div class="course-hero__overlay"></div>
+        <div class="course-hero__content">
+        <a href="/pages/index.html" class="course-hero__back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="m15 18-6-6 6-6"/>
+            </svg>
+            Volver a cursos
+        </a>
+        <div class="course-hero__eyebrow" id="heroArea">Modelado 3D</div>
+        <h1 class="course-hero__title" id="heroTitle">Cargando curso...</h1>
+        <p class="course-hero__author" id="heroAuthor"></p>
+        <p class="course-hero__desc" id="heroDesc"></p>
+        <div class="course-hero__stats">
+            <span class="course-hero__stat" id="heroCapsuleCount">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+            </svg>
+            0 cápsulas
+            </span>
+        </div>
+        </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════╗ -->
+    <!-- ║           VISTA: SELECCIÓN          ║ -->
+    <!-- ╚══════════════════════════════════════╝ -->
+    <div id="viewSelection" class="view">
+        <div class="view-header">
+        <p class="content__count">
+            Mostrando <strong id="capsuleCount">0</strong> cápsula(s)
+        </p>
+        </div>
+        <div class="capsules-grid" id="capsulesGrid">
+        <!-- Renderizado por course.js -->
+        </div>
+        <div class="empty-state" id="emptyState" style="display:none;">
+        <div class="empty-state__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+        </div>
+        <p class="empty-state__text">No se encontraron cápsulas.</p>
+        </div>
+        <!-- Skeleton loader -->
+        <div class="skeleton-grid" id="skeletonGrid">
+        <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line"></div><div class="skeleton-line skeleton-line--short"></div></div>
+        <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line"></div><div class="skeleton-line skeleton-line--short"></div></div>
+        <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line"></div><div class="skeleton-line skeleton-line--short"></div></div>
+        </div>
+    </div>
+
+    <!-- ╔══════════════════════════════════════╗ -->
+    <!-- ║         VISTA: CÁPSULA ABIERTA      ║ -->
+    <!-- ╚══════════════════════════════════════╝ -->
+    <div id="viewCapsule" class="view view--hidden">
+        <div class="capsule-view" id="capsuleView">
+
+        <!-- Botón volver -->
+        <button class="capsule-view__back" id="btnBackToSelection">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="m15 18-6-6 6-6"/>
+            </svg>
+            Volver a selección de cápsulas
+        </button>
+
+        <!-- Video embebido -->
+        <div class="capsule-view__video-wrap">
+            <div class="capsule-view__video-header">
+            <span class="capsule-view__order" id="capsuleOrder">Cápsula 01</span>
+            <h2 class="capsule-view__title" id="capsuleTitle">Título de la cápsula</h2>
+            <p class="capsule-view__desc" id="capsuleDesc"></p>
+            </div>
+            <div class="capsule-view__iframe-wrap">
+            <iframe
+                id="capsuleIframe"
+                src=""
+                title="Cápsula educativa"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+            ></iframe>
+            </div>
+        </div>
+
+        <!-- Recursos -->
+        <div class="capsule-view__resources" id="resourcesSection">
+            <div class="resources-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <h3 class="resources-header__title">Recursos del curso</h3>
+            </div>
+            <div class="resources-grid" id="resourcesGrid">
+            <!-- Renderizado por course.js -->
+            </div>
+            <div class="resources-empty" id="resourcesEmpty" style="display:none;">
+            <p>No hay recursos disponibles para esta cápsula aún.</p>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <!-- ╔══════════════════════════════════════╗ -->
+    <!-- ║              FOOTER                 ║ -->
+    <!-- ╚══════════════════════════════════════╝ -->
+    <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__brand">
+        <img
+            src="/assets/img/Laboratorio - Fabricación Digital - FABLAB.png"
+            alt="FabLab UFPS"
+            class="footer__logo-img"
+        />
+        </div>
+        <p class="footer__copy">
+        © <span id="footerYear"></span> Laboratorio de Fabricación Digital — Universidad Francisco de Paula Santander
+        </p>
+        <div class="footer__links">
+        <a href="/pages/terms.html" class="footer__link">Política de uso</a>
+        </div>
+    </div>
+    </footer>
+
+    <script src="/assets/js/course.js"></script>
+</body>
+</html>
