@@ -113,10 +113,15 @@ function initFilters() {
         // Recolectar valores únicos de todos los cursos
         const values = new Set();
         state.courses.forEach(course => {
-        const field = course[group];
-        if (!field) return;
-        if (Array.isArray(field)) field.forEach(v => values.add(v));
-        else values.add(field);
+            const rawValue = course[group];
+            if (!rawValue) return;
+            
+            // Split si es un string separado por comas, sino tratar como array o valor único
+            const splitValues = typeof rawValue === 'string' 
+                ? rawValue.split(',').map(v => v.trim()) 
+                : (Array.isArray(rawValue) ? rawValue : [rawValue]);
+
+            splitValues.forEach(v => { if (v) values.add(v); });
         });
 
         // Inicializar el Set de filtros activos
@@ -232,11 +237,15 @@ function applyFilters() {
     Object.entries(state.filters).forEach(([group, values]) => {
     if (values.size === 0) return;
     result = result.filter(course => {
-        const field = course[group];
-        if (!field) return false;
-        const courseValues = Array.isArray(field)
-        ? field.map(v => v.toLowerCase())
-        : [field.toLowerCase()];
+        const rawValue = course[group];
+        if (!rawValue) return false;
+
+        // Normalizar los valores del curso a un array de strings en minúsculas
+        const courseValues = (typeof rawValue === 'string' 
+            ? rawValue.split(',').map(v => v.trim()) 
+            : (Array.isArray(rawValue) ? rawValue : [rawValue]))
+            .map(v => String(v).toLowerCase());
+
         return [...values].some(v => courseValues.includes(v.toLowerCase()));
     });
     });
@@ -290,6 +299,12 @@ function renderCourses() {
 function buildCard(course) {
     const capsuleCount = course.capsules?.length ?? 0;
     const thumbUrl     = fixDriveUrl(course.thumbnail);
+
+    // Procesar múltiples áreas para mostrar etiquetas limpias
+    const rawArea = course.area || 'FabLab';
+    const areaList = typeof rawArea === 'string' ? rawArea.split(',').map(a => a.trim()) : (Array.isArray(rawArea) ? rawArea : [rawArea]);
+    const areaLabels = areaList.map(a => FILTER_LABELS.area[a.toLowerCase()] ?? a).join(', ');
+
     const thumbnail    = thumbUrl
     ? `<img src="${thumbUrl}" alt="${escapeHTML(course.title)}" loading="lazy" referrerpolicy="no-referrer" />`
     : placeholderSVG();
